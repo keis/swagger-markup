@@ -3,7 +3,7 @@
   "dependencies": {
     "abstract-document-builder": "^1.0.0",
     "confluence-writer": "^1.0.0",
-    "markdown-writer": "^1.0.0",
+    "markdown-writer": "^1.0.1",
     "meow": "^3.7.0",
     "swagger-parser": "^3.4.0",
     "util-each": "^1.0.1"
