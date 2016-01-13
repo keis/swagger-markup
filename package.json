@@ -8,7 +8,7 @@
     "swagger-parser": "^3.4.0",
     "util-each": "^1.0.1"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "generate markup from swagger spec",
   "main": "index.js",
   "bin": {
