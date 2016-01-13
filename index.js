@@ -15,6 +15,10 @@ function yes (b) {
   return b ? 'yes' : ''
 }
 
+function refname (ref) {
+  return ref.replace(/.*\/([^\/])/, '$1')
+}
+
 function convert (path, frmt) {
   var Writer = format[frmt]
   var s = new Writer()
@@ -26,7 +30,7 @@ function convert (path, frmt) {
       if (info.schema.type) {
         return info.schema.type
       }
-      return md._link(info.schema.$ref.replace(/.*\/([^\/])/, '$1'))
+      return md._link(refname(info.schema.$ref))
     }
     return info.type
   }
@@ -85,12 +89,16 @@ function convert (path, frmt) {
 
     md.header(2, 'Definitions')
     each(api.definitions, function (def, name) {
+      var r = def.required || []
       md.anchor(name)
       md.header(3, name)
       md.tableHeader()
       md.tableHeaderRow('Field Name', 'Field Type', 'Description', 'Required?', 'Read Only?')
       each(def.properties, function (pi, pn) {
-        md.tableRow(pn, pi.type, pi.description, yes(~def.required.indexOf(pn)), yes(pi.readOnly))
+        md.tableRow(pn, pi.type, pi.description, yes(~r.indexOf(pn)), yes(pi.readOnly))
+        if (pi.items && pi.items.$ref) {
+          md.tableRow(' - Item', md._link(refname(pi.items.$ref)), '', '', '')
+        }
       })
     })
   })
