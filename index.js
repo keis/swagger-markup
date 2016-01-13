@@ -33,7 +33,7 @@ function convert (path, frmt) {
 
   parser.bundle(path, function (err, api) {
     if (err) {
-      md.emit('error', err)
+      s.emit('error', err)
       return
     }
 

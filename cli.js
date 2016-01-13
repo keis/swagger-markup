@@ -14,4 +14,7 @@ var cli = meow([
 })
 
 convert(cli.input[0], cli.flags.format)
+  .on('error', function (err) {
+    console.error(err.message)
+  })
   .pipe(process.stdout)
