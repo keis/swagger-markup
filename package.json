@@ -1,0 +1,36 @@
+{
+  "name": "swagger-markup",
+  "dependencies": {
+    "abstract-document-builder": "^1.0.0",
+    "confluence-writer": "^1.0.0",
+    "markdown-writer": "^1.0.0",
+    "meow": "^3.7.0",
+    "swagger-parser": "^3.4.0",
+    "util-each": "^1.0.1"
+  },
+  "version": "0.0.0",
+  "description": "generate markup from swagger spec",
+  "main": "index.js",
+  "bin": {
+    "swagger-markup": "./cli.js"
+  },
+  "devDependencies": {
+    "standard": "^5.4.1"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keis/swagger-markup.git"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "author": "David Keijser <keijser@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keis/swagger-markup/issues"
+  },
+  "homepage": "https://github.com/keis/swagger-markup#readme"
+}
